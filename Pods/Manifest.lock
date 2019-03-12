@@ -6,11 +6,15 @@ PODS:
   - CDYelpFusionKit (1.5.1):
     - AlamofireObjectMapper (= 5.2.0)
   - ObjectMapper (3.4.2)
-  - SwiftyJSON (4.2.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
 
 DEPENDENCIES:
   - CDYelpFusionKit
-  - SwiftyJSON
+  - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -18,15 +22,17 @@ SPEC REPOS:
     - AlamofireObjectMapper
     - CDYelpFusionKit
     - ObjectMapper
-    - SwiftyJSON
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   CDYelpFusionKit: 94a7802fa23ef0eb78514c8a6f246f55b6bc91f0
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
 
-PODFILE CHECKSUM: 84309e8b96641f1f831e32feae4d19f742f5f7b7
+PODFILE CHECKSUM: 9043d930840e85bf56608145e898f6f2992e7112
 
 COCOAPODS: 1.6.0

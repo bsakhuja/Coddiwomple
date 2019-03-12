@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import SwiftyJSON
 import Alamofire
 import CoreLocation
 import CDYelpFusionKit
+import RealmSwift
 
-class SearchViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchViewController: UIViewController {
     
     // Constants and variables
     let yelpAPIClient = CDYelpAPIClient(apiKey: apiKey)
@@ -47,33 +47,6 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate, UITable
         tableView.addGestureRecognizer(tapGesture)
     }
     
-    // UITableView delegate and data source methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businessResults.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = businessResults[indexPath.row].name!
-        return cell
-    }
-
-    // UISearchBar delegate method
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if let searchBarText = searchBar.text {
-            searchYelp(searchQuery: searchBarText)
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.endEditing(true)
-    }
-    
-    // Declare tableViewTapped here:
-    @objc func tableViewTapped() {
-        placeSearchBar.endEditing(true)
-    }
     
     
     //MARK: - Networking
@@ -111,20 +84,29 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate, UITable
         
     }
     
-    //MARK: - JSON Parsing
-    /***************************************************************/
-    func updateSearchResultsFromYelp(json: JSON) {
-        
-    }
-    
     //MARK: - UI Updates
     /***************************************************************/
     func updateUIWithSearchResultsFromYelp() {
         
     }
     
-    //MARK: - Location Manager Delegate Methods
-    /***************************************************************/
+    
+    
+    //Write the didFailWithError method here:
+    // TODO: - Handle the error more elegantly
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        
+    }
+    
+    
+    
+}
+
+/***************************************************************/
+// MARK: - EXTENSION: CLLocationManagerDelegate
+extension SearchViewController: CLLocationManagerDelegate {
+
     
     // Write the didUpdateLocations method here:
     // Gets the user's current location and updates the coordinateLocation property
@@ -136,19 +118,50 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate, UITable
             locationManager.delegate = nil
             
             print("Latitude: \(location.coordinate.latitude); Longitude: \(location.coordinate.longitude)")
-        
+            
             self.coordinateLocation = location.coordinate
-        
+            
+        }
+    }
+}
+
+/***************************************************************/
+// MARK: - EXTENSION: Table View Delegate and Data Source
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // UITableView delegate and data source methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return businessResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = businessResults[indexPath.row].name!
+        return cell
+    }
+    
+    
+}
+
+
+/***************************************************************/
+// MARK: - EXTENSION: Search Bar Delegate
+extension SearchViewController: UISearchBarDelegate {
+    // UISearchBar delegate method
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let searchBarText = searchBar.text {
+            searchYelp(searchQuery: searchBarText)
         }
     }
     
-    //Write the didFailWithError method here:
-    // TODO: - Handle the error more elegantly
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-        
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.endEditing(true)
     }
     
-    
-    
+    // Declare tableViewTapped here:
+    @objc func tableViewTapped() {
+        placeSearchBar.endEditing(true)
+    }
 }

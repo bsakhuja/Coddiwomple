@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D518A8884F66487ACB9B6278AF7CC29B"
+               BlueprintIdentifier = "144C449C7B8C9CC92F1DB47FF49D3771"
                BuildableName = "Pods_Coddiwomple.framework"
                BlueprintName = "Pods-Coddiwomple"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D518A8884F66487ACB9B6278AF7CC29B"
+            BlueprintIdentifier = "144C449C7B8C9CC92F1DB47FF49D3771"
             BuildableName = "Pods_Coddiwomple.framework"
             BlueprintName = "Pods-Coddiwomple"
             ReferencedContainer = "container:Pods.xcodeproj">

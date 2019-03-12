@@ -3,5 +3,5 @@ use_frameworks!
 
 target 'Coddiwomple' do
 	pod 'CDYelpFusionKit'
-	pod 'SwiftyJSON'
+	pod 'RealmSwift'
 end

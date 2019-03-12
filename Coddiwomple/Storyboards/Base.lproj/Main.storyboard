@@ -40,7 +40,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.77632373571395874" green="0.77614909410476685" blue="0.79677623510360718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uns-8a-VaS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5aP-68-RMc"/>
                             <constraint firstItem="cqj-A2-TD8" firstAttribute="top" secondItem="uns-8a-VaS" secondAttribute="bottom" id="8Bb-iY-fCq"/>
