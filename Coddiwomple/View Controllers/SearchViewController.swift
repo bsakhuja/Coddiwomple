@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     
     // Constants and variables
     let yelpAPIClient = CDYelpAPIClient(apiKey: apiKey)
-    var businessResults = [CDYelpBusiness]()
+    var places = [Place]()
     
     // Declare instance variables here
     let locationManager = CLLocationManager()
@@ -43,8 +43,8 @@ class SearchViewController: UIViewController {
         locationManager.startUpdatingLocation()
         
         // Set the tapGesture here to ultimately dismiss keyboard when user taps tableview
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
-        tableView.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+//        tableView.addGestureRecognizer(tapGesture)
     }
     
     
@@ -75,11 +75,21 @@ class SearchViewController: UIViewController {
                                             let businesses = response.businesses,
                                             businesses.count > 0 {
                                             
-                                            self.businessResults = businesses
+                                            // Initialize businesses
+                                            // TODO: - If we have saved the business that matches the id, we need to add the checkmark
+                                            for business in businesses {
+                                                let newPlace = Place()
+                                                newPlace.name = business.name!
+                                                newPlace.id = business.id!
+                                                newPlace.categories = business.categories!
+                                                newPlace.isSaved = false
+                                                
+                                                self.places.append(newPlace)
+                                            }
+    
                                             self.tableView.reloadData()
                                         }
-                        
-                                        
+                    
         }
         
     }
@@ -132,13 +142,32 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     // UITableView delegate and data source methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businessResults.count
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = businessResults[indexPath.row].name!
+        
+        let place = places[indexPath.row]
+        
+        cell.textLabel?.text = place.name
+        
+        if place.isSaved {
+            cell.accessoryType = .checkmark
+        }
+    
         return cell
+    }
+    
+    // Perform  logic for saving places
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let placeTapped = places[indexPath.row]
+        
+        if !placeTapped.isSaved {
+            placeTapped.isSaved = true
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
+        
     }
     
     

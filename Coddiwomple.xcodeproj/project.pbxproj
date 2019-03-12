@@ -17,6 +17,7 @@
 		0690C91721E7FF0300CB0C8C /* CoddiwompleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0690C91621E7FF0300CB0C8C /* CoddiwompleUITests.swift */; };
 		06A06744223739D800473F16 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06743223739D800473F16 /* Place.swift */; };
 		06A0674822373AD300473F16 /* CategoricalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A0674722373AD300473F16 /* CategoricalList.swift */; };
+		06A0674A22373DD900473F16 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A0674922373DD900473F16 /* CategoriesViewController.swift */; };
 		CFEAB7F698BE1F0ED46629BC /* Pods_Coddiwomple.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3189A1B21209905926321 /* Pods_Coddiwomple.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		0690C91821E7FF0300CB0C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06A06743223739D800473F16 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		06A0674722373AD300473F16 /* CategoricalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoricalList.swift; path = "/Users/briansakhuja/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Projects/Coddiwomple/Coddiwomple/Data Models/CategoricalList.swift"; sourceTree = "<absolute>"; };
+		06A0674922373DD900473F16 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoriesViewController.swift; path = "Coddiwomple/View Controllers/CategoriesViewController.swift"; sourceTree = SOURCE_ROOT; };
 		75B3189A1B21209905926321 /* Pods_Coddiwomple.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coddiwomple.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9566DCD8DE5D77AAC596CCF1 /* Pods-Coddiwomple.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coddiwomple.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coddiwomple/Pods-Coddiwomple.release.xcconfig"; sourceTree = "<group>"; };
 		E1A63C3E37F08693F43FB668 /* Pods-Coddiwomple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coddiwomple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coddiwomple/Pods-Coddiwomple.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0690C8FA21E7FEFE00CB0C8C /* Main.storyboard */,
+				06A0674922373DD900473F16 /* CategoriesViewController.swift */,
 				0690C8FF21E7FF0200CB0C8C /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -374,6 +377,7 @@
 			files = (
 				064F175F223727B300856EC9 /* Secrets.swift in Sources */,
 				0690C8F921E7FEFE00CB0C8C /* SearchViewController.swift in Sources */,
+				06A0674A22373DD900473F16 /* CategoriesViewController.swift in Sources */,
 				0690C8F721E7FEFE00CB0C8C /* AppDelegate.swift in Sources */,
 				06A06744223739D800473F16 /* Place.swift in Sources */,
 				06A0674822373AD300473F16 /* CategoricalList.swift in Sources */,

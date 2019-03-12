@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import CDYelpFusionKit
 import RealmSwift
 
 class Place: Object {
     @objc dynamic var name: String = ""
+    @objc dynamic var id: String = ""
+    var categories = [CDYelpCategory]()
+    @objc dynamic var isSaved: Bool = false
 }
